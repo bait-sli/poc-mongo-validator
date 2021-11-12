@@ -1,10 +1,10 @@
-Environement de developpement
+A poc to demonstrate how to use object validation with Mongoose and MongoDB when create or update documents in database 
 
-install Docker environement
+Run "docker-compose up --build" in main folder where docker-compose.yml is located
 
-Run "docker-compose up --build" dans le dossier racine contenant le fichier docker-compose.yml
-
-Access to localhost:3000 in browser
+Access to localhost:8081 in browser to manage mongo database
+Access to localhost:8080 to access server api with Postman
+Start server with: cd server && npm run exec
 
 Each part of application is deploy in his own docker container
 to see the infra inside a container use
