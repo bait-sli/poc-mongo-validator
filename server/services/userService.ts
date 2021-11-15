@@ -1,20 +1,26 @@
+import UserBusiness from "../business/UserBusiness";
+
 var express = require("express");
 
 var userRouter = express.Router();
 
-userRouter.get("/", (req, res) => {
-    console.log("okok");
-    res.status(200).json();
+userRouter.get("/", async(req, res) => {
+	const filter = {};
+	let userMgr = new UserBusiness;
+	const results = await userMgr.find(filter);
+	res.status(200).json(results);
 });
 
-userRouter.post("/", (req, res) => {
-    console.log(req.body);
-    res.status(200).json();
-})
+userRouter.post("/", async(req, res) => {
+	let userMgr = new UserBusiness;
+	const result = await userMgr.create(req.body);
+	res.status(200).json(result);
+});
 
-userRouter.put("/", (req, res) => {
-    console.log(req.body);
-    res.status(200).json();
-})
+userRouter.put("/", async(req, res) => {
+	let userMgr = new UserBusiness;
+	const result = await userMgr.update(req.body);
+	res.status(200).json(result);
+});
 
-export default userRouter
+export default userRouter;
